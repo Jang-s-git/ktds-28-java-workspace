@@ -1,0 +1,9 @@
+# git으로 업로드하기 싫은 목록 작성.
+
+.metadata
+
+*/.settings
+*/bin
+
+.classpath
+.project
