@@ -21,7 +21,7 @@ public class Review {
 	String reviewerName;
 	
 	/**
-	 * 별점(만족도)
+	 * 평점(만족도)
 	 */
 	int satisfaction;
 }

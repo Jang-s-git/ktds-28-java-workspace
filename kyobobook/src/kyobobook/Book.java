@@ -44,4 +44,25 @@ public class Book {
 	 * 분야
 	 */
 	String field;
+	
+	/**
+	 * 책 고유 번호
+	 */
+	String serial;
+	
+	/**
+	 * 발행일자
+	 */
+	String date;
+	
+	/**
+	 * 쪽수
+	 */
+	int page;
+	
+	/**
+	 * 책의 가로 세로 높이
+	 */
+	int[] size = new int[3];
+	
 }
