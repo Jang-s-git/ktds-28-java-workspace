@@ -2,10 +2,10 @@ package com.ktdsuniversity.edu.oop.exam;
 
 public class StudentScore {
 
-	int java;
-	int python;
-	int cpp;
-	int csharp;
+	private int java;
+	private int python;
+	private int cpp;
+	private int csharp;
 	
 	public StudentScore(int java, int python, int cpp, int csharp) {
 		this.java = java;
@@ -13,7 +13,8 @@ public class StudentScore {
 		this.cpp = cpp;
 		this.csharp = csharp;
 	}
-	public int getSumAllScore() {
+	
+	private int getSumAllScore() {
 		int sum = (java + python + cpp + csharp);
 		return (sum);
 	}

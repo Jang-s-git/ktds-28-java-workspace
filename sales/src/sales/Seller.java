@@ -42,18 +42,20 @@ public class Seller {
 		Seller sellerA = new Seller(3500, 0, 15);
 		Seller sellerB = new Seller(2000, 4000, 20);
 		
-		int salesB = sellerB.Sales(2000, 13);
+		int salesB = sellerB.Sales(2000, customerA.basketNum);
 		if (customerA.cash >= salesB && customerA.basketNum <= sellerB.stock) {
-			sellerB.stock -= 1;
+			sellerB.stock -= customerA.basketNum;
+			customerA.cash -= salesB;
 			System.out.println("구매자A 구매 성공!");
 			System.out.println("남은 재고: " + sellerB.stock);
 		} else {
 			System.out.println("구매자A 구매 실패");
 		}
 		
-		int salesA = sellerA.Sales(3500, 20);
-		if (customerB.cash >= salesA && customerA.basketNum <= sellerA.stock) {
-			sellerA.stock -= 1;
+		int salesA = sellerA.Sales(3500, customerB.basketNum);
+		if (customerB.cash >= salesA && customerB.basketNum <= sellerA.stock) {
+			sellerA.stock -= customerB.basketNum;
+			customerB.cash -= salesA;
 			System.out.println("구매자B 구매 성공!");
 			System.out.println("남은 재고: " + sellerA.stock);
 		} else {
