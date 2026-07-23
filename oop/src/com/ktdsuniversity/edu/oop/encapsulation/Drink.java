@@ -17,6 +17,8 @@ public class Drink {
 	 */
 	private int satiety;
 	
+	static final int ADULT = 19;
+	
 	public Drink(String drink, int tipsy, int satiety) {
 		this.drink = drink;
 		this.tipsy = tipsy;
@@ -28,8 +30,9 @@ public class Drink {
 	}
 	
 	public void serve(Customer customer) {
+		
 		// 미성년자, 부모동반 여부 체크
-		if (customer.getAge() < 19 && !customer.getIsWithParents()) {
+		if (customer.getAge() < ADULT && !customer.getIsWithParents()) {
 			System.out.println("미성년자는 주류를 드실 수 없습니다.");
 			return;
 		}

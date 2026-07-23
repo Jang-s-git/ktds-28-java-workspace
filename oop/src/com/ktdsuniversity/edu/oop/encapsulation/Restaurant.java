@@ -16,7 +16,7 @@ public class Restaurant {
 		Drink cognac = new Drink("꼬냑", 40, -7);
 		
 		// 엄마와 딸이 방문
-		Customer mom = new Customer(42, true, 0 , 0);
+		Customer mom = new Customer(42, false, 0 , 0);
 		Customer daugther = new Customer(15, true, 0 , 0);
 		
 		// 혼자 방문

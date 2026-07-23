@@ -7,6 +7,16 @@ public class StudentScore {
 	private int cpp;
 	private int csharp;
 	
+	public StudentScore() {
+//		this.java = 100;
+//		this.python = 100;
+//		this.cpp = 100;
+//		this.csharp = 100;
+		// 생성자 내부에서는 다른 생성자의 호출이 가능
+		// 호출방법: this();
+		this(100, 100, 100, 100);
+	}
+	
 	public StudentScore(int java, int python, int cpp, int csharp) {
 		this.java = java;
 		this.python = python;
@@ -54,6 +64,7 @@ public class StudentScore {
 	public static void main(String[] args) {
 											// java, py, cpp, cs
 		StudentScore studentA = new StudentScore(96, 90, 83, 78);
+		StudentScore studentB = new StudentScore(); // 모든 점수가 100점인 학생 인스턴스
 		
 		int sum = studentA.getSumAllScore();
 		
