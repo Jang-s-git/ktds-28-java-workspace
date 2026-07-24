@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		String startWord = "자전거";
-		System.out.println("끝말잇기를 시작합니다! \n시작 단어: "+ startWord);
+		System.out.println("끝말잇기를 시작합니다! \n"+ startWord);
 		
 		// 시작단어의 마지막 글자 저장
 		String lastWord = startWord.substring(startWord.length()-1);
