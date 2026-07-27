@@ -23,10 +23,6 @@ public class Meal {
 		this.tipsy = tipsy;
 	}
 	
-	public String getMeal() {
-		return this.meal;
-	}
-	
 	public void serve(Customer customer) {
 		// 포만감 100 초과 시 서빙 불가
 		if (customer.getCustomerSatiety() > 100) {

@@ -25,10 +25,6 @@ public class Drink {
 		this.satiety = satiety;
 	}
 	
-	public String getDrink() {
-		return this.drink;
-	}
-	
 	public void serve(Customer customer) {
 		
 		// 미성년자, 부모동반 여부 체크
