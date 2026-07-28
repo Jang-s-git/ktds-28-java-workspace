@@ -1,0 +1,26 @@
+package com.ktdsuniversity.edu.oop.interfaces;
+
+public class Member implements MemberService {
+// Member is a MemberService
+	
+	@Override
+	public void join() {
+		System.out.println("일반 회원 가입 합니다.");
+	}
+
+	@Override
+	public void login() {
+		System.out.println("일반 회원 로그인 합니다.");
+	}
+
+	@Override
+	public void deleteMe() {
+		System.out.println("일반 회원 탈퇴 합니다.");
+	}
+
+	@Override
+	public void logout() {
+		System.out.println("일반 회원 로그아웃 합니다.");
+	}
+
+}

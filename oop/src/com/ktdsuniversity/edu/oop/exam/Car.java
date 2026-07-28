@@ -49,6 +49,13 @@ public class Car {
 		}
 	}
 	
+	// 부모 클래스에 있는 toString이라는 클래스를 오버라이딩 했다
+	@Override 
+	public String toString() {
+		// 출력의 형태를 정의
+		return this.zero100Seconds + "";
+	}
+	
 	public static void main(String[] args){
 		
 		// Car 클래스를 이용해 다음을 생성
@@ -57,6 +64,21 @@ public class Car {
 		
 		// Car 타입의 carnival 인스턴스 생성
 		Car carnival = new Car(6);
+		
+		System.out.println(kona); // Type@HashData => 8
+		System.out.println(carnival); // Type@HashData => 6
+		
+		String name = "asdfgqwert"; // name은 변수가 아닌 인스턴스
+		System.out.println(name); // asdfgqwert
+		// -> System은 클래스.(final, 상속 불가)
+		// -> out은 인스턴스. System 클래스/PrintStream 클래스
+		// -> println => 껍데기는 Object로 받아서 실제로 들어가는 데이터 확인
+		//			  => null 또는 toString으로 반환
+		
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("asdfgqwert");
+		System.out.println(buffer); // asdfgqwert
+		// => toStingCache를 통해 String으로 반환
 		
 		// kona의 시동을 켠다
 		kona.pressEngineStartButton();

@@ -30,6 +30,7 @@ public class Car {
 	
 	public static void main(String[] args) {
 		
+		// 자식 클래스의 인스턴스가 부모에게 할당되는 것을 허가한다 - 다형성
 		Vehicle[] vehicles = new Vehicle[5];
 		vehicles[0] = new Vehicle("클래식카");
 		vehicles[1] = new SportsCar("스포츠카1");
