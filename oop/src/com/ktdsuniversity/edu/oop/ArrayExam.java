@@ -1,4 +1,4 @@
-package com.ktdsuniversity.edu.oop.exam;
+package com.ktdsuniversity.edu.oop;
 
 public class ArrayExam {
 
