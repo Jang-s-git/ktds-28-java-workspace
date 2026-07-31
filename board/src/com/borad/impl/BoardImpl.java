@@ -27,7 +27,7 @@ public class BoardImpl implements BoardService {
 		}
 		
 		boards.add(new Board(title, writer, date, 0, content));
-		System.out.println("게시글이 성공적으로 저장되었습니다.");
+		System.out.println("게시글 작성이 완료되었습니다.");
 		System.out.println("제목: " + title);
 		System.out.println("작성자: " + writer);
 		System.out.println("작성 날짜: " + date);
@@ -36,8 +36,12 @@ public class BoardImpl implements BoardService {
 
 	@Override
 	public void printAll() {
+		if (boards.isEmpty()) {
+			System.out.println("등록된 게시글이 없습니다.");
+		}
 		for (int i = 0; i < boards.size(); i++) {
-			((Board) boards).increaseViewCount();
+			Board board = boards.get(i);
+			board.increaseViewCount();
 			System.out.println("제목: " + boards.get(i).getTitle());
 			System.out.println("작성자: " + boards.get(i).getWriter());
 			System.out.println("작성 날짜: " + boards.get(i).getDate());
@@ -48,28 +52,51 @@ public class BoardImpl implements BoardService {
 
 	@Override
 	public void print(int index) {
-		System.out.println("제목: " + boards.get(index).getTitle());
-		System.out.println("작성자: " + boards.get(index).getWriter());
-		System.out.println("작성 날짜: " + boards.get(index).getDate());
-		System.out.println("내용: " + boards.get(index).getContent());
-		System.out.println("조회수: " + boards.get(index).getViewCount());
+		try {
+			Board board = boards.get(index);
+			board.increaseViewCount();
+			System.out.println("-----------------------");
+			System.out.println("제목: " + boards.get(index).getTitle());
+			System.out.println("작성자: " + boards.get(index).getWriter());
+			System.out.println("작성 날짜: " + boards.get(index).getDate());
+			System.out.println("내용: " + boards.get(index).getContent());
+			System.out.println("조회수: " + boards.get(index).getViewCount());
+		} catch(IndexOutOfBoundsException e) {
+			System.out.println("잘못된 게시글 번호입니다.");
+		}
+		
 	}
 
 	@Override
 	public void update(int index, String title, String content) {
-		// IndexOutOfBoundsException
-		
+		try {
+			Board board = boards.get(index);
+			title = title.trim();
+			if(title.isBlank()) {
+				ArticleException ae = new ArticleException("제목은 필수로 입력해야 하며, 30글자 내로 작성해야 합니다.");
+				throw ae;
+			}
+			
+			
+			System.out.println("게시글 수정이 완료되었습니다.");
+		} catch(IndexOutOfBoundsException e) {
+			System.out.println("잘못된 게시글 번호입니다.");
+		}
 	}
 
 	@Override
 	public void delete(int index) {
-		//IndexOutOfBoundsException
-		
+		try {
+			boards.remove(index);
+			System.out.println("게시글 삭제가 완료되었습니다.");
+		} catch(IndexOutOfBoundsException e) {
+			System.out.println("잘못된 게시글 번호입니다.");
+		}
 	}
 
 	@Override
 	public void count() {
-		System.out.println(boards.size());
+		System.out.println("총 게시글 수: " + boards.size());
 	}
 
 	@Override
@@ -79,7 +106,16 @@ public class BoardImpl implements BoardService {
 
 	@Override
 	public void deleteAll() {
-		
+		boards.clear();
+		System.out.println("게시글을 전부 삭제하였습니다.");
 	}
-
+	
+	@Override
+	public Board getBoard(int index) {
+		if (index >=0 && index < boards.size()) {
+			return boards.get(index);
+		}
+		return null;
+	}
+	
 }

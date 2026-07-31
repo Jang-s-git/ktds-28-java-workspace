@@ -1,5 +1,7 @@
 package com.borad.inf;
 
+import com.borad.domain.Board;
+
 public interface BoardService {
 	
 	/** 게시글 추가 */
@@ -25,5 +27,7 @@ public interface BoardService {
 	
 	/** 게시글 목록 전체 삭제 */
 	void deleteAll();
-
+	
+	Board getBoard(int index);
+	
 }
