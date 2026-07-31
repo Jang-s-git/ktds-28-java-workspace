@@ -48,22 +48,28 @@ public class BoardImpl implements BoardService {
 
 	@Override
 	public void print(int index) {
-		
+		System.out.println("제목: " + boards.get(index).getTitle());
+		System.out.println("작성자: " + boards.get(index).getWriter());
+		System.out.println("작성 날짜: " + boards.get(index).getDate());
+		System.out.println("내용: " + boards.get(index).getContent());
+		System.out.println("조회수: " + boards.get(index).getViewCount());
 	}
 
 	@Override
 	public void update(int index, String title, String content) {
+		// IndexOutOfBoundsException
 		
 	}
 
 	@Override
 	public void delete(int index) {
+		//IndexOutOfBoundsException
 		
 	}
 
 	@Override
 	public void count() {
-		
+		System.out.println(boards.size());
 	}
 
 	@Override
