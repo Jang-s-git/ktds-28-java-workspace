@@ -1,5 +1,9 @@
 package com.ktdsuniversity.edu.oop.collection.list.goods;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,15 +13,33 @@ public class GoodsHolder {
 
 	private List<Goods> goods;
 	
-	public GoodsHolder(int goodsCount) {
-//		if (goodsCount <= 0) {
-//			HolderInitiateException hie = new HolderInitiateException
-//					("잘못된 인덱스 개수입니다. 0보다 큰 값을 입력하세요.");
-//			throw hie;
-//		}
+	public GoodsHolder() {
 		this.goods = new ArrayList<>();
+		this.loadGoods();
 	}
 	
+	private void loadGoods() {
+		// 파일을 읽는다
+		File database = new File("C:/Java Exam", "Goods.txt");
+		
+		if (database.exists() && database.isFile()) {
+			List<String> goodsList = null;
+			try {	
+				goodsList = Files.readAllLines(database.toPath());
+			} catch(IOException ioe) {
+				ioe.printStackTrace();
+			}
+			
+			if (goodsList != null) {
+				String[] goodsInfo = null;
+				for (int i = 0; i < goodsList.size(); i++) {
+					goodsInfo = goodsList.get(i).split(",");
+					this.addGoods(goodsInfo[0], goodsInfo[1]);
+				}
+			}
+		}
+	}
+
 	public void addGoods(String name, String price) {
 		if (price == null) {
 			return;
@@ -47,15 +69,31 @@ public class GoodsHolder {
 		if (name == null || name.trim().length() == 0) {
 			return;
 		}
-//		if (this.goodsIndex < this.goods.length) {
-//			this.goods[this.goodsIndex++] = new Goods(name, price);
-//		}
 		this.goods.add(new Goods(name, price));
+	}
+	
+	public void addGoods(String name, int price, boolean addToFile) {
+		this.addGoods(name, price);
+		
+		if (addToFile) {
+			File database = new File("C:/Java Exam", "Goods.txt");
+			if (!database.getParentFile().exists()) {
+				database.getParentFile().mkdirs();
+			}
+			
+			List<String> data = new ArrayList<>();
+			data.add("%s, %d".formatted(name, price));
+			
+			try {
+				Files.write(database.toPath(), data, StandardOpenOption.APPEND);
+			} catch(IOException ioe) {
+				ioe.printStackTrace();
+			}
+		}
 	}
 	
 	public void removeGoods(int goodsIndex) {
 		if (goodsIndex >= 0 && goodsIndex < this.goods.size()) {
-//			this.goods[goodsIndex] = null;
 			this.goods.remove(goodsIndex);
 		}
 	}

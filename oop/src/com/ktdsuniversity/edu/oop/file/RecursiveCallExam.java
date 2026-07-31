@@ -1,0 +1,18 @@
+package com.ktdsuniversity.edu.oop.file;
+
+public class RecursiveCallExam {
+// RecursiveCall = 재귀 호출
+	// -> 계층 구조 탐색기 (경로 찾기)
+	
+	public static void explore(int number) {
+		System.out.println("현재 번호는 " + number + "입니다.");
+		if (number < 10) {
+			explore(number+1);
+		}
+		System.out.println("현재 번호는 " + number + "입니다.");
+	}
+
+	public static void main(String[] args) {
+		explore(0);
+	}
+}

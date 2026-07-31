@@ -81,6 +81,11 @@ public class Tag {
 			printTags(clothes.get(i));
 		}
 		
+		// Map을 사용하지 않는 이유 - Handling 불가
+		Map<String, List<Map<String, List<Map<String, Map<String, Object>>>>>> 옷 = new HashMap<>();
+		// 구조 복잡, Key가 하나라도 바뀔 시 뒷감당 불가
+		// 클래스로 만드는 것이 쉽다
+		
 	}
 	
 	public static void printTags(Map<String, Object> tags) {
