@@ -10,7 +10,11 @@ import com.borad.inf.BoardService;
 
 public class BoardImpl implements BoardService {
 
-	private List<Board> boards = new ArrayList<>();
+	private List<Board> boards;
+	
+	public BoardImpl() {
+		this.boards = new ArrayList<>();
+	}
 	
 	@Override
 	public void add(String title, String writer, String date, String content) {
