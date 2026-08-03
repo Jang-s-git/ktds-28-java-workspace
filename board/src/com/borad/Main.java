@@ -61,7 +61,6 @@ public class Main {
 					}
 				} catch(NumberFormatException nfe) {
 					System.out.println("숫자만 입력해주세요.");
-					continue;
 				}
 			} else if (menu == 4) {
 				// 4. 게시글 수정
@@ -81,7 +80,6 @@ public class Main {
 					}
 				} catch(NumberFormatException nfe) {
 					System.out.println("숫자만 입력해주세요.");
-					continue;
 				}
 			} else if (menu == 5) {
 				// 5. 게시글 삭제
@@ -99,7 +97,6 @@ public class Main {
 					}
 				} catch(NumberFormatException nfe) {
 					System.out.println("숫자만 입력해주세요.");
-					continue;
 				}
 			} else if (menu == 6) {
 				// 6. 게시글 수
@@ -124,7 +121,6 @@ public class Main {
 					}
 				} catch(NumberFormatException nfe) {
 					System.out.println("숫자만 입력해주세요.");
-					continue;
 				}
 			} else if (menu == 8) {
 				// 8. 댓글 삭제
@@ -142,7 +138,6 @@ public class Main {
 					}
 				} catch(NumberFormatException nfe) {
 					System.out.println("숫자만 입력해주세요.");
-					continue;
 				}
 			} else if (menu == 9) {
 				// 9. 댓글 추천
@@ -160,7 +155,6 @@ public class Main {
 					}
 				} catch(NumberFormatException nfe) {
 					System.out.println("숫자만 입력해주세요.");
-					continue;
 				}
 			} else if (menu == 10) {
 				// 10. 게시글 검색
@@ -184,7 +178,6 @@ public class Main {
 					}
 				} catch(NumberFormatException nfe) {
 					System.out.println("숫자만 입력해주세요.");
-					continue;
 				}
 			} else if (menu == 0) {
 				// 0. 종료
