@@ -49,42 +49,57 @@ public class Main {
 			} else if (menu == 3) {
 				// 3. 게시글 조회
 				System.out.println("조회할 게시글 번호: ");
-				int index = Integer.parseInt(scanner.nextLine());
-				
-				Board board = boardService.getBoard(index);
-				if (board == null) {
-					System.out.println("잘못된 게시글 번호입니다.");
-				} else {
-					boardService.print(index);
-					commentService.printComment(board.getComments());
+				try {
+					int index = Integer.parseInt(scanner.nextLine());
+					
+					Board board = boardService.getBoard(index);
+					if (board == null) {
+						System.out.println("잘못된 게시글 번호입니다.");
+					} else {
+						boardService.print(index);
+						commentService.printComment(board.getComments());
+					}
+				} catch(NumberFormatException nfe) {
+					System.out.println("숫자만 입력해주세요.");
+					continue;
 				}
 			} else if (menu == 4) {
 				// 4. 게시글 수정
 				System.out.println("수정할 게시글 번호: ");
-				int index = Integer.parseInt(scanner.nextLine());
-				
-				Board board = boardService.getBoard(index);
-				if (board == null) {
-					System.out.println("잘못된 게시글 번호입니다.");
-				} else {
-					System.out.println("수정할 제목: ");
-					String title = scanner.nextLine();
-					System.out.println("수정할 내용: ");
-					String content = scanner.nextLine();
-					boardService.update(index, title, content);
+				try {
+					int index = Integer.parseInt(scanner.nextLine());
+					
+					Board board = boardService.getBoard(index);
+					if (board == null) {
+						System.out.println("잘못된 게시글 번호입니다.");
+					} else {
+						System.out.println("수정할 제목: ");
+						String title = scanner.nextLine();
+						System.out.println("수정할 내용: ");
+						String content = scanner.nextLine();
+						boardService.update(index, title, content);
+					}
+				} catch(NumberFormatException nfe) {
+					System.out.println("숫자만 입력해주세요.");
+					continue;
 				}
 			} else if (menu == 5) {
 				// 5. 게시글 삭제
 				System.out.println("삭제할 게시글 번호: ");
-				int index = Integer.parseInt(scanner.nextLine());
-				
-				Board board = boardService.getBoard(index);
-				if (board == null) {
-					System.out.println("잘못된 게시글 번호입니다.");
-				} else {
-					boardService.delete(index);
-					// 해당 게시글의 댓글도 전부 삭제
-					commentService.deleteAllComment(board.getComments());
+				try {
+					int index = Integer.parseInt(scanner.nextLine());
+					
+					Board board = boardService.getBoard(index);
+					if (board == null) {
+						System.out.println("잘못된 게시글 번호입니다.");
+					} else {
+						boardService.delete(index);
+						// 해당 게시글의 댓글도 전부 삭제
+						commentService.deleteAllComment(board.getComments());
+					}
+				} catch(NumberFormatException nfe) {
+					System.out.println("숫자만 입력해주세요.");
+					continue;
 				}
 			} else if (menu == 6) {
 				// 6. 게시글 수
@@ -92,46 +107,60 @@ public class Main {
 			} else if (menu == 7) {
 				// 7. 댓글 작성
 				System.out.println("댓글을 작성할 게시글 번호: ");
-				int index = Integer.parseInt(scanner.nextLine());
-				
-				Board board = boardService.getBoard(index);
-				if (board == null) {
-					System.out.println("잘못된 게시글 번호입니다.");
-				} else {
-					System.out.println("댓글 내용: ");
-					String content = scanner.nextLine();
-					System.out.println("댓글 작성자: ");
-					String writer = scanner.nextLine();
-					System.out.println("댓글 작성 날짜: ");
-					String date = scanner.nextLine();
-					commentService.addComment(board.getComments(), content, writer, date);
+				try {
+					int index = Integer.parseInt(scanner.nextLine());
+					
+					Board board = boardService.getBoard(index);
+					if (board == null) {
+						System.out.println("잘못된 게시글 번호입니다.");
+					} else {
+						System.out.println("댓글 내용: ");
+						String content = scanner.nextLine();
+						System.out.println("댓글 작성자: ");
+						String writer = scanner.nextLine();
+						System.out.println("댓글 작성 날짜: ");
+						String date = scanner.nextLine();
+						commentService.addComment(board.getComments(), content, writer, date);
+					}
+				} catch(NumberFormatException nfe) {
+					System.out.println("숫자만 입력해주세요.");
+					continue;
 				}
-				
 			} else if (menu == 8) {
 				// 8. 댓글 삭제
 				System.out.println("댓글을 삭제할 게시글 번호: ");
-				int index = Integer.parseInt(scanner.nextLine());
-				
-				Board board = boardService.getBoard(index);
-				if (board == null) {
-					System.out.println("잘못된 게시글 번호입니다.");
-				} else {
-					System.out.println("삭제할 댓글 번호: ");
-					int i = Integer.parseInt(scanner.nextLine());
-					commentService.deleteComment(board.getComments(), i);
+				try {
+					int index = Integer.parseInt(scanner.nextLine());
+					
+					Board board = boardService.getBoard(index);
+					if (board == null) {
+						System.out.println("잘못된 게시글 번호입니다.");
+					} else {
+						System.out.println("삭제할 댓글 번호: ");
+						int i = Integer.parseInt(scanner.nextLine());
+						commentService.deleteComment(board.getComments(), i);
+					}
+				} catch(NumberFormatException nfe) {
+					System.out.println("숫자만 입력해주세요.");
+					continue;
 				}
 			} else if (menu == 9) {
 				// 9. 댓글 추천
 				System.out.println("댓글을 추천할 게시글 번호: ");
-				int index = Integer.parseInt(scanner.nextLine());
-				
-				Board board = boardService.getBoard(index);
-				if (board == null) {
-					System.out.println("잘못된 게시글 번호입니다.");
-				} else {
-					System.out.println("추천할 댓글 번호: ");
-					int i = Integer.parseInt(scanner.nextLine());
-					commentService.recommendComment(board.getComments(), i);
+				try {
+					int index = Integer.parseInt(scanner.nextLine());
+					
+					Board board = boardService.getBoard(index);
+					if (board == null) {
+						System.out.println("잘못된 게시글 번호입니다.");
+					} else {
+						System.out.println("추천할 댓글 번호: ");
+						int i = Integer.parseInt(scanner.nextLine());
+						commentService.recommendComment(board.getComments(), i);
+					}
+				} catch(NumberFormatException nfe) {
+					System.out.println("숫자만 입력해주세요.");
+					continue;
 				}
 			} else if (menu == 10) {
 				// 10. 게시글 검색
@@ -144,13 +173,18 @@ public class Main {
 			} else if (menu == 12) {
 				// 12. 댓글 전체 삭제
 				System.out.println("댓글 전체를 삭제할 게시글 번호: ");
-				int index = Integer.parseInt(scanner.nextLine());
-				
-				Board board = boardService.getBoard(index);
-				if (board == null) {
-					System.out.println("잘못된 게시글 번호입니다.");
-				} else {
-					commentService.deleteAllComment(board.getComments());
+				try {
+					int index = Integer.parseInt(scanner.nextLine());
+					
+					Board board = boardService.getBoard(index);
+					if (board == null) {
+						System.out.println("잘못된 게시글 번호입니다.");
+					} else {
+						commentService.deleteAllComment(board.getComments());
+					}
+				} catch(NumberFormatException nfe) {
+					System.out.println("숫자만 입력해주세요.");
+					continue;
 				}
 			} else if (menu == 0) {
 				// 0. 종료

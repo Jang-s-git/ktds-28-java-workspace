@@ -15,7 +15,7 @@ public class BoardImpl implements BoardService {
 	@Override
 	public void add(String title, String writer, String date, String content) {
 		title = title.trim();
-		if(title.isBlank()) {
+		if(title.isBlank() || title.length() > 30) {
 			ArticleException ae = new ArticleException("제목은 필수로 입력해야 하며, 30글자 내로 작성해야 합니다.");
 			throw ae;
 		}
@@ -41,12 +41,8 @@ public class BoardImpl implements BoardService {
 		}
 		for (int i = 0; i < boards.size(); i++) {
 			Board board = boards.get(i);
-			board.increaseViewCount();
-			System.out.println("제목: " + boards.get(i).getTitle());
-			System.out.println("작성자: " + boards.get(i).getWriter());
-			System.out.println("작성 날짜: " + boards.get(i).getDate());
-			System.out.println("내용: " + boards.get(i).getContent());
-			System.out.println("조회수: " + boards.get(i).getViewCount());
+			int comment = board.getComments().size();
+			System.out.println(i+ ". " + boards.get(i).getTitle() + "(" + comment + ")");
 		}
 	}
 
@@ -72,7 +68,7 @@ public class BoardImpl implements BoardService {
 		try {
 			Board board = boards.get(index);
 			title = title.trim();
-			if(title.isBlank()) {
+			if(title.isBlank() || title.length() > 30) {
 				ArticleException ae = new ArticleException("제목은 필수로 입력해야 하며, 30글자 내로 작성해야 합니다.");
 				throw ae;
 			}
