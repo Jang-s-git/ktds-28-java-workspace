@@ -77,6 +77,7 @@ public class BoardImpl implements BoardService {
 				throw ae;
 			}
 			
+			board.modifyBoard(title, content);
 			
 			System.out.println("게시글 수정이 완료되었습니다.");
 		} catch(IndexOutOfBoundsException e) {
@@ -101,7 +102,19 @@ public class BoardImpl implements BoardService {
 
 	@Override
 	public void search(String keyboard) {
-		
+		for (int i = 0; i < boards.size(); i++) {
+			if (boards.get(i).getTitle().contains(keyboard)) {
+					Board board = boards.get(i);
+					board.increaseViewCount();
+					System.out.println("제목: " + boards.get(i).getTitle());
+					System.out.println("작성자: " + boards.get(i).getWriter());
+					System.out.println("작성 날짜: " + boards.get(i).getDate());
+					System.out.println("내용: " + boards.get(i).getContent());
+					System.out.println("조회수: " + boards.get(i).getViewCount());
+			} else {
+				System.out.println("게시글이 없습니다.");
+			}
+		}
 	}
 
 	@Override

@@ -49,4 +49,9 @@ public class Board {
 		return this.comments;
 	}
 	
+	public void modifyBoard(String title, String content) {
+		this.title = title;
+		this.content = content;
+	}
+	
 }
