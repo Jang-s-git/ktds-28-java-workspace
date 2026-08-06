@@ -1,5 +1,6 @@
 package com.ktdsuniversity.edu.fp.lambda;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -18,12 +19,18 @@ public class DishSummary {
 	}
 	
 	public void printAllDishesBy(Predicate<Dish> condition) {
-		for (int i = 0; i < this.dishes.size(); i++) {
-			
-			if (condition.test(this.dishes.get(i))) {
-				System.out.println(this.dishes.get(i));
-			}
-		}
+		
+		List<Dish> temp = new ArrayList<>();
+		temp.addAll(this.dishes);
+		temp.removeIf(condition.negate());
+		
+		temp.forEach(System.out::println);
+		
+//		for (int i = 0; i < this.dishes.size(); i++) {
+//			if (condition.test(this.dishes.get(i))) {
+//				System.out.println(this.dishes.get(i));
+//			}
+//		}
 	}
 	
 	public void printTotalCaloriesBy(Predicate<Dish> condition) {
