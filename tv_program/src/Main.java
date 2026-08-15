@@ -63,14 +63,12 @@ public class Main {
         Broadcaster ebs = new Broadcaster("EBS");
         Broadcaster tvn = new Broadcaster("TVN");
 
-        // 프로그램 등록 (09:00 방영 프로그램 포함)
+        // 프로그램 등록
         sbs.addProgram(new Program("좋은아침", LocalTime.of(8, 50), LocalTime.of(10, 0)));
         kbs1.addProgram(new Program("아침마당", LocalTime.of(8, 25), LocalTime.of(9, 30)));
         kbs2.addProgram(new Program("생생정보", LocalTime.of(8, 30), LocalTime.of(9, 30)));
         mbc.addProgram(new Program("드라마", LocalTime.of(9, 0), LocalTime.of(10, 0)));
         ebs.addProgram(new Program("애니메이션", LocalTime.of(8, 0), LocalTime.of(9, 30)));
-
-        // TVN은 09:00에 해당하는 프로그램이 없는 상태 (오후 시간대만 등록)
         tvn.addProgram(new Program("예능", LocalTime.of(12, 0), LocalTime.of(13, 30)));
 
         // 방송사 목록 생성
