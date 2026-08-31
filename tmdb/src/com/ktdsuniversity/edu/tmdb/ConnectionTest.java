@@ -8,6 +8,12 @@ public class ConnectionTest {
 
 	public static void main(String[] args) {
 		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch(ClassNotFoundException e) {
+			throw new RuntimeException("odjbc 드라이버가 발견되지 않았습니다. 클래스 패스를 확인해 주세요.");
+		}
+		
 		// Java -> Oracle 연결하기 위한 URL
 		String url = "jdbc:oracle:thin:@//localhost:1521/XE";
 		// Oracle에 접속하기 위한 인증 정보
