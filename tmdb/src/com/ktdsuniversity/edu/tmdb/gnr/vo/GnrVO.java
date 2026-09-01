@@ -12,12 +12,6 @@ public class GnrVO {
 	// 하나의 장르에는 여러 개의 영화가 있다.
 	private List<MvVO> mvList;
 	
-	public GnrVO(String gnrId, String nm) {
-		super();
-		this.gnrId = gnrId;
-		this.nm = nm;
-	}
-	
 	public String getGnrId() {
 		return this.gnrId;
 	}
@@ -39,5 +33,10 @@ public class GnrVO {
 		this.mvList = mvList;
 	}
 	
+	@Override
+	public String toString() {
+		return "gnrId: " + this.gnrId
+				+ ", nm: " + this.nm ;
+	}
 	
 }

@@ -11,12 +11,6 @@ public class VdVO {
 	// 하나의 동영상은 하나의 영화를 위한 것이다.
 	private MvVO mvVO;
 	
-	public VdVO(String vdId, String mvId, String vdUrl) {
-		super();
-		this.vdId = vdId;
-		this.mvId = mvId;
-		this.vdUrl = vdUrl;
-	}
 
 	public String getVdId() {
 		return this.vdId;
@@ -50,5 +44,11 @@ public class VdVO {
 		this.mvVO = mvVO;
 	}
 	
+	@Override
+	public String toString() {
+		return "vdId: " + this.vdId
+				+ ", mvId: " + this.mvId
+				+ ", vdUrl: " + this.vdUrl ;
+	}
 	
 }

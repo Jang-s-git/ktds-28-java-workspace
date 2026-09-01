@@ -17,13 +17,6 @@ public class InvlvdVO {
 	// 참여자 한 명이 여러 개의 영화에 출연했다.
 	private List<ApprVO> apprList;
 	
-	public InvlvdVO(String invlvdId, String prflPhtUrl, String nm) {
-		super();
-		this.invlvdId = invlvdId;
-		this.prflPhtUrl = prflPhtUrl;
-		this.nm = nm;
-	}
-	
 	public String getInvlvdId() {
 		return this.invlvdId;
 	}

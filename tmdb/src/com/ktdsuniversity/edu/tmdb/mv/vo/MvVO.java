@@ -27,8 +27,8 @@ public class MvVO {
 	private String orgnlTtl;
 	private String shwng;
 	private String orgnlLngg;
-	private int bdgt;
-	private int bxOffcRvn;
+	private long bdgt;
+	private long bxOffcRvn;
 	
 	// 하나의 영화는 여러 개의 동영상을 가지고 있다
 	private List<VdVO> vdList;
@@ -50,29 +50,6 @@ public class MvVO {
 	
 	// 하나의 영화는 여러 개의 키워드가 있다
 	private List<KwrdVO> kwrdList;
-	
-	public MvVO(String mvId, String ttl, String mvRtng, String rlsDt, int rnngTm, String smmr, String mainPstrUrl,
-			String url, String fbUrl, String xUrl, String instaUrl, String tgln, String orgnlTtl, String shwng,
-			String orgnlLngg, int bdgt, int bxOffcRvn) {
-		super();
-		this.mvId = mvId;
-		this.ttl = ttl;
-		this.mvRtng = mvRtng;
-		this.rlsDt = rlsDt;
-		this.rnngTm = rnngTm;
-		this.smmr = smmr;
-		this.mainPstrUrl = mainPstrUrl;
-		this.url = url;
-		this.fbUrl = fbUrl;
-		this.xUrl = xUrl;
-		this.instaUrl = instaUrl;
-		this.tgln = tgln;
-		this.orgnlTtl = orgnlTtl;
-		this.shwng = shwng;
-		this.orgnlLngg = orgnlLngg;
-		this.bdgt = bdgt;
-		this.bxOffcRvn = bxOffcRvn;
-	}
 
 	public String getMvId() {
 		return this.mvId;
@@ -146,11 +123,11 @@ public class MvVO {
 		this.fbUrl = fbUrl;
 	}
 
-	public String getxUrl() {
+	public String getXUrl() {
 		return this.xUrl;
 	}
 
-	public void setxUrl(String xUrl) {
+	public void setXUrl(String xUrl) {
 		this.xUrl = xUrl;
 	}
 
@@ -194,21 +171,23 @@ public class MvVO {
 		this.orgnlLngg = orgnlLngg;
 	}
 
-	public int getBdgt() {
+	public long getBdgt() {
 		return this.bdgt;
 	}
 
-	public void setBdgt(int bdgt) {
+	public void setBdgt(long bdgt) {
 		this.bdgt = bdgt;
 	}
 
-	public int getBxOffcRvn() {
+	public long getBxOffcRvn() {
 		return this.bxOffcRvn;
 	}
 
-	public void setBxOffcRvn(int bxOffcRvn) {
+	public void setBxOffcRvn(long bxOffcRvn) {
 		this.bxOffcRvn = bxOffcRvn;
 	}
+
+/********************************************************************/
 
 	public List<VdVO> getVdList() {
 		return this.vdList;
@@ -266,5 +245,25 @@ public class MvVO {
 		this.kwrdList = kwrdList;
 	}
 	
+	@Override
+	public String toString() {
+		return "mvId: " + this.mvId
+				+ ", ttl: " + this.ttl
+				+ ", mvRtng: " + this.mvRtng
+				+ ", rlsDt: " + this.rlsDt
+				+ ", rnngTm: " + this.rnngTm
+				+ ", smmr: " + this.smmr
+				+ ", mainPstrUrl: " + this.mainPstrUrl
+				+ ", url: " + this.url
+				+ ", fbUrl: " + this.fbUrl
+				+ ", xUrl: " + this.xUrl
+				+ ", instaUrl: " + this.instaUrl
+				+ ", tgln: " + this.tgln
+				+ ", orgnlTtl: " + this.orgnlTtl
+				+ ", shwng: " + this.shwng
+				+ ", orgnlLngg: " + this.orgnlLngg
+				+ ", bdgt: " + this.bdgt
+				+ ", bxOffcRvn: " + this.bxOffcRvn ;
+	}
 	
 }

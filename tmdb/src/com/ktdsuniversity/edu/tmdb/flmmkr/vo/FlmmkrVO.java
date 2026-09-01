@@ -17,15 +17,6 @@ public class FlmmkrVO {
 	// 제작자 한 명에 대한 참여자 정보
 	private InvlvdVO invlvdVO;
 
-	public FlmmkrVO(String flmmkrId, String invlvdId, String mvId, String rl, String prt) {
-		super();
-		this.flmmkrId = flmmkrId;
-		this.invlvdId = invlvdId;
-		this.mvId = mvId;
-		this.rl = rl;
-		this.prt = prt;
-	}
-
 	public String getFlmmkrId() {
 		return this.flmmkrId;
 	}
@@ -81,6 +72,15 @@ public class FlmmkrVO {
 
 	public void setInvlvdVO(InvlvdVO invlvdVO) {
 		this.invlvdVO = invlvdVO;
+	}
+	
+	@Override
+	public String toString() {
+		return "flmmkrId: " + this.flmmkrId
+				+ ", invlvdId: " + this.invlvdId
+				+ ", mvId: " + this.mvId
+				+ ", rl: " + this.rl
+				+ ", prt: " + this.prt ;
 	}
 	
 }

@@ -12,12 +12,6 @@ public class KwrdVO {
 	// 하나의 키워드에는 여러 개의 영화가 있다.
 	private List<MvVO> mvList;
 	
-	public KwrdVO(String kwrdId, String nm) {
-		super();
-		this.kwrdId = kwrdId;
-		this.nm = nm;
-	}
-	
 	public String getKwrdId() {
 		return this.kwrdId;
 	}
@@ -39,5 +33,10 @@ public class KwrdVO {
 		this.mvList = mvList;
 	}
 	
+	@Override
+	public String toString() {
+		return "kwrdId: " + this.kwrdId
+				+ ", nm: " + this.nm ;
+	}
 	
 }

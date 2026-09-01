@@ -16,14 +16,6 @@ public class ApprVO {
 	// 출연자의 정보
 	private InvlvdVO invlvdVO;
 	
-	public ApprVO(String strId, String invlvdId, String mvId, String rl) {
-		super();
-		this.strId = strId;
-		this.invlvdId = invlvdId;
-		this.mvId = mvId;
-		this.rl = rl;
-	}
-	
 	public String getStrId() {
 		return this.strId;
 	}
@@ -65,5 +57,12 @@ public class ApprVO {
 		this.invlvdVO = invlvdVO;
 	}
 	
+	@Override
+	public String toString() {
+		return "strId: " + this.strId
+				+ ", invlvdId: " + this.invlvdId
+				+ ", mvId: " + this.mvId
+				+ ", rl: " + this.rl;
+	}
 	
 }

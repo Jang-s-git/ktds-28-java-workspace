@@ -10,13 +10,6 @@ public class PstrVO {
 	
 	// 하나의 배경은 하나의 영화를 위한 것이다.
 	private MvVO mvVO;
-	
-	public PstrVO(String pstrId, String mvId, String pstrUrl) {
-		super();
-		this.pstrId = pstrId;
-		this.mvId = mvId;
-		this.pstrUrl = pstrUrl;
-	}
 
 	public String getPstrId() {
 		return this.pstrId;
@@ -50,5 +43,12 @@ public class PstrVO {
 		this.mvVO = mvVO;
 	}
 	
+	@Override
+	public String toString() {
+		return "pstrId: " + this.pstrId
+				+ ", mvId: " + this.mvId
+				+ ", pstrUrl: " + this.pstrUrl ;
+	}
+
 	
 }

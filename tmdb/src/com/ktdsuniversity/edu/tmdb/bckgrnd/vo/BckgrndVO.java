@@ -10,13 +10,6 @@ public class BckgrndVO {
 	
 	// 하나의 포스터는 하나의 영화를 위한 것이다.
 	private MvVO mvVO;
-	
-	public BckgrndVO(String bckgrndId, String mvId, String bckgrndUrl) {
-		super();
-		this.bckgrndId = bckgrndId;
-		this.mvId = mvId;
-		this.bckgrndUrl = bckgrndUrl;
-	}
 
 	public String getBckgrndId() {
 		return this.bckgrndId;
